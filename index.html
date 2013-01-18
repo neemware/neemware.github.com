@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset='utf-8' />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <meta name="description" content="Neemware.github.com : Neemware Mobile CRM APIs" />
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>Neemware.github.com</title>
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/neemware">View on GitHub</a>
+
+          <h1 id="project_title">Neemware.github.com</h1>
+          <h2 id="project_tagline">Neemware Mobile CRM APIs</h2>
+
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <h2>1. Content API</h2>
+
+<h3>Overview:</h3>
+
+<p>Use this API to retrieve all types of messages associated with a specific user.  </p>
+
+<h3>Sample Usecase:</h3>
+
+<p>If you are implementing a Inbox in your app and would like to retrieve all messages pertained to a specific user (device) you can use this API.  </p>
+
+<h3>Request:</h3>
+
+<p><a href="https://api.neemware.com/1/contents.json">https://api.neemware.com/1/contents.json</a>  </p>
+
+<h3>Method:</h3>
+
+<p>GET  </p>
+
+<h3>Required Parameters:</h3>
+
+<p>api_key – Your application specific API Key that can be obtained when you register your app.<br>
+did – Unique device id  </p>
+
+<h3>Optional Parameters:</h3>
+
+<p>d_make – Make of the device<br>
+d_model – Model of the device<br>
+d_os – Device OS<br>
+d_osv –  OS Version<br>
+latitude – Latitude<br>
+longitude -  Longitude  </p>
+
+<h3>Sample Curl:</h3>
+
+<div class="highlight"><pre>curl -i -H <span class="s2">"Accept: application/json"</span> https://api.neemware.com/1/contents.json?api_key<span class="o">=</span>&lt;your_api_key&gt;<span class="se">\&amp;</span><span class="nv">did</span><span class="o">=</span>1234<span class="se">\&amp;</span><span class="nv">d_make</span><span class="o">=</span>Apple<span class="se">\&amp;</span><span class="nv">d_model</span><span class="o">=</span>iPhone<span class="se">\&amp;</span><span class="nv">d_os</span><span class="o">=</span>iPhone+OS<span class="se">\&amp;</span><span class="nv">d_osv</span><span class="o">=</span>6.0<span class="se">\&amp;</span><span class="nv">latitude</span><span class="o">=</span>42.37<span class="se">\&amp;</span><span class="nv">longitude</span><span class="o">=</span>-71.13
+</pre></div>
+
+<h3>Sample Output:</h3>
+
+<div class="highlight"><pre><span class="o">{</span><span class="s2">"uid"</span>:375305,<span class="s2">"did"</span>:<span class="s2">"1234"</span>,<span class="s2">"device_model"</span>:<span class="s2">"iPhone"</span>,<span class="s2">"device_os"</span>:<span class="s2">"iPhone OS"</span>,<span class="s2">"device_osv"</span>:<span class="s2">"6.0"</span>,<span class="s2">"unread_count"</span>:2,<span class="s2">"branding"</span>:<span class="s2">"Powered by Neemware"</span>,<span class="s2">"message_center_title"</span>:<span class="s2">"Messages"</span>,<span class="s2">"feedback_button_title"</span>:<span class="s2">"Feedback"</span>,<span class="s2">"timestamp"</span>:1358391787,<span class="s2">"update_client"</span>:true,  
+<span class="s2">"contents"</span>:<span class="o">[</span>  
+<span class="o">{</span><span class="s2">"id"</span>:29,<span class="s2">"content_subject"</span>:<span class="s2">"Make a resolution to for your brain work out with Lumosity Brain Trainer"</span>,<span class="s2">"content_icon"</span>:<span class="s2">"http://a485.phobos.apple.com/us/r1000/091/Purple/v4/4b/59/6a/4b596a21-daf6-08a3-6b8c-b9989135b574/57-sm-sq-icon.png"</span>,<span class="s2">"content_body"</span>:<span class="s2">"Over 20 million users have trained their brain using Brain Trainer by Lumosity.com..."</span>,<span class="s2">"content_url"</span>:<span class="s2">"https://itunes.apple.com/us/app/lumosity-brain-trainer/id338945375?mt=8&amp;uo=4"</span>,<span class="s2">"content_type"</span>:<span class="s2">"promotion"</span>,<span class="s2">"read"</span>:false,<span class="s2">"banner_also"</span>:false,<span class="s2">"created_at"</span>:1358391736<span class="o">}</span>,  
+
+<span class="o">{</span><span class="s2">"id"</span>:544,<span class="s2">"content_subject"</span>:<span class="s2">"What features would you like to see in the next version of this app?"</span>,<span class="s2">"content_icon"</span>:<span class="s2">"api.neemware.com/assets/icons/question_24.png"</span>,<span class="s2">"content_body"</span>:<span class="s2">""</span>,<span class="s2">"content_url"</span>:<span class="s2">"http://api.neemware.com/1/questions/544?api_key=35fa9ed4af9a4e378b24d760ccd4eaff&amp;did=1234"</span>,<span class="s2">"content_type"</span>:<span class="s2">"question"</span>,<span class="s2">"read"</span>:false,<span class="s2">"banner_also"</span>:false,<span class="s2">"created_at"</span>:1358391518<span class="o">}</span>,  
+
+<span class="o">{</span><span class="s2">"id"</span>:268,<span class="s2">"content_subject"</span>:<span class="s2">"Welcome to Neemware !!!"</span>,<span class="s2">"content_icon"</span>:<span class="s2">"api.neemware.com/assets/icons/message_24.png"</span>,<span class="s2">"content_body"</span>:<span class="s2">"Simple, open and powerful APIs for Mobile CRM."</span>,<span class="s2">"content_url"</span>:<span class="s2">"http://api.neemware.com/1/messages/268?api_key=35fa9ed4af9a4e378b24d760ccd4eaff&amp;did=1234"</span>,<span class="s2">"content_type"</span>:<span class="s2">"message"</span>,<span class="s2">"read"</span>:true,<span class="s2">"banner_also"</span>:false,<span class="s2">"created_at"</span>:1358388240<span class="o">}</span>  
+<span class="o">]}</span>  
+</pre></div>
+
+<p>The outer header as meta data about the content such as # of unread messages for this specific user.  </p>
+
+<p>Also this particular user has 3 different types of content – a promotion, a question and a message. The message is read by user (“read”:true), whereas the user hasn’t read the promotion and question.  </p>
+
+<h3>HTTP Status codes for Positive responses:</h3>
+
+<p>200 OK  </p>
+
+<h3>HTTP Status codes for Negative responses:</h3>
+
+<p>400 Bad Request – If required parameter (did) is not passed<br>
+401 Unauthorized – If api_key is not passed or if a wrong api_key is passed  </p>
+
+<h3>Sample iOS Code:</h3>
+
+<p><a href="https://github.com/neemware/neemware-ios-sdk/blob/master/NeemwareSDK/Neemware/Neemware/Data/NWContentDataStore.m#L94-L115">NWContentDataStore.m</a></p>
+
+<h2>2. API to retrieve specific content</h2>
+
+<h3>Overview:</h3>
+
+<p>Use this API to retrieve a specific message by ID.  </p>
+
+<h3>Sample Usecase:</h3>
+
+<p>Let us say you want to thank your power users after they take some specific action in your app, you can use this API  </p>
+
+<h3>Request:</h3>
+
+<p>For Messages:<br><a href="https://api.neemware.com/1/messages/ID(.json/html)">https://api.neemware.com/1/messages/ID(.json/html)</a><br>
+For Questions:<br><a href="https://api.neemware.com/1/questions/ID(.json/html)">https://api.neemware.com/1/questions/ID(.json/html)</a><br>
+For Promotions:<br><a href="https://api.neemware.com/1/promotions/ID(.json/html)">https://api.neemware.com/1/promotions/ID(.json/html)</a>  </p>
+
+<h3>Method:</h3>
+
+<p>GET  </p>
+
+<h3>Required Parameters:</h3>
+
+<p>api_key – Your application specific API Key that can be obtained when you register your app.<br>
+did – Unique device id  </p>
+
+<h3>Optional Parameters:</h3>
+
+<p>d_make – Make of the device<br>
+d_model – Model of the device<br>
+d_os – Device OS<br>
+d_osv –  OS Version<br>
+latitude – Latitude<br>
+longitude -  Longitude  </p>
+
+<h3>Sample Curl:</h3>
+
+<div class="highlight"><pre>curl -i -H <span class="s2">"Accept: application/json"</span> https://api.neemware.com/1/messages/&lt;your-message-id&gt;.json?api_key<span class="o">=</span>&lt;your_api_key&gt;<span class="se">\&amp;</span><span class="nv">did</span><span class="o">=</span>1234<span class="se">\&amp;</span><span class="nv">d_make</span><span class="o">=</span>Apple<span class="se">\&amp;</span><span class="nv">d_model</span><span class="o">=</span>iPhone<span class="se">\&amp;</span><span class="nv">d_os</span><span class="o">=</span>iPhone+OS<span class="se">\&amp;</span><span class="nv">d_osv</span><span class="o">=</span>6.0<span class="se">\&amp;</span><span class="nv">latitude</span><span class="o">=</span>42.37<span class="se">\&amp;</span><span class="nv">longitude</span><span class="o">=</span>-71.13  
+</pre></div>
+
+<h3>Sample Output:</h3>
+
+<div class="highlight"><pre><span class="o">{</span><span class="s2">"uid"</span>:375305,<span class="s2">"did"</span>:<span class="s2">"1234"</span>,<span class="s2">"device_model"</span>:<span class="s2">"iPhone"</span>,<span class="s2">"device_os"</span>:<span class="s2">"iPhone OS"</span>,<span class="s2">"device_osv"</span>:<span class="s2">"6.0"</span>,<span class="s2">"unread_count"</span>:0,<span class="s2">"branding"</span>:<span class="s2">"Powered by Neemware"</span>,<span class="s2">"message_center_title"</span>:<span class="s2">"Messages"</span>,<span class="s2">"feedback_button_title"</span>:<span class="s2">"Feedback"</span>,<span class="s2">"timestamp"</span>:1358393523,<span class="s2">"update_client"</span>:true,  
+<span class="s2">"contents"</span>:  
+<span class="o">[</span>  
+<span class="o">{</span><span class="s2">"id"</span>:268,<span class="s2">"content_subject"</span>:<span class="s2">"Welcome to Neemware !!!"</span>,<span class="s2">"content_icon"</span>:<span class="s2">"api.neemware.com/assets/icons/message_24.png"</span>,<span class="s2">"content_body"</span>:<span class="s2">"Simple, open and powerful APIs for Mobile CRM."</span>,<span class="s2">"content_url"</span>:<span class="s2">"http://api.neemware.com/1/messages/268?api_key=35fa9ed4af9a4e378b24d760ccd4eaff&amp;did=1234"</span>,<span class="s2">"content_type"</span>:<span class="s2">"message"</span>,<span class="s2">"read"</span>:true,<span class="s2">"banner_also"</span>:false,<span class="s2">"created_at"</span>:1358388240<span class="o">}</span>  
+<span class="o">]</span>  
+<span class="o">}</span>  
+</pre></div>
+
+<p>The subject and body of the message is given by content_url and content_body respectively. The message is also hosted in a URL pointed by content_url. The mobile app can display this URL in a Webview.  </p>
+
+<h3>HTTP Status codes for Positive responses:</h3>
+
+<p>200 OK  </p>
+
+<h3>HTTP Status codes for Negative responses:</h3>
+
+<p>400 Bad Request – If required parameter (did) is not passed<br>
+401 Unauthorized – If api_key is not passed or if a wrong api_key is passed  </p>
+
+<h3>Sample iOS Code:</h3>
+
+<p><a href="https://github.com/neemware/neemware-ios-sdk/blob/master/NeemwareSDK/Neemware/Neemware/Data/NWContentDataStore.m#L94-L115">NWContentDataStore.m</a><br>
+Use /messages, /questions, or /promotions instead of /contents in the above linked example</p>
+
+<h2>3. API to mark specific content as read</h2>
+
+<h3>Overview:</h3>
+
+<p>Use this API to mark a specific content as read (by the user).  </p>
+
+<h3>Sample Use Case:</h3>
+
+<p>Let us say you are displaying the content in the inbox, or a specific message as a banner. If a user clicks on a specific message, you can track the click on that message by making a ‘read’ call.   </p>
+
+<h3>Request:</h3>
+
+<p>For Messages:<br><a href="https://api.neemware.com/1/messages/ID/read">https://api.neemware.com/1/messages/ID/read</a><br>
+For Questions:<br><a href="https://api.neemware.com/1/questions/ID/read">https://api.neemware.com/1/questions/ID/read</a><br>
+For Promotions:<br><a href="https://api.neemware.com/1/promotions/ID/read">https://api.neemware.com/1/promotions/ID/read</a>  </p>
+
+<h3>Method:</h3>
+
+<p>PUT  </p>
+
+<h3>Required Parameters:</h3>
+
+<p>api_key – Your application specific API Key that can be obtained when you register your app.<br>
+did – Unique device id  </p>
+
+<h3>Optional Parameters:</h3>
+
+<p>d_make – Make of the device<br>
+d_model – Model of the device<br>
+d_os – Device OS<br>
+d_osv –  OS Version<br>
+latitude – Latitude<br>
+longitude -  Longitude  </p>
+
+<h3>Sample Curl:</h3>
+
+<div class="highlight"><pre>curl -i -H <span class="s2">"Accept: application/json"</span> -X PUT -d <span class="s2">"api_key=&lt;your-api-key&gt;&amp;did=1234&amp;d_make=Apple&amp;d_model=iPhone&amp;d_os=iPhone+OS&amp;d_osv=6.0&amp;latitude=42.37&amp;longitude=-71.13"</span>  https://api.neemware.com/1/messages/&lt;YOUR-MESSAGE-ID&gt;/read  
+</pre></div>
+
+<h3>HTTP Status codes for Positive responses:</h3>
+
+<p>200 OK  </p>
+
+<h3>HTTP Status codes for Negative responses:</h3>
+
+<p>400 Bad Request – If required parameter (did) is not passed<br>
+401 Unauthorized – If api_key is not passed or if a wrong api_key is passed  </p>
+
+<h3>Sample iOS Code:</h3>
+
+<p><a href="https://github.com/neemware/neemware-ios-sdk/blob/master/NeemwareSDK/Neemware/Neemware/Data/NWContentDataStore.m#L223-L249">NWContentDataStore.m</a></p>
+
+<h2>4. API to submit Feedback</h2>
+
+<h3>Overview:</h3>
+
+<p>Use this API to send user feedback to the server.  </p>
+
+<h3>Sample Use Case:</h3>
+
+<p>You care about user feedback. You would like to solicit feedbacks from users, store them and respond to them. Then you need this API.  </p>
+
+<h3>Request:</h3>
+
+<p><a href="https://api.neemware.com/1/feedbacks">https://api.neemware.com/1/feedbacks</a>  </p>
+
+<h3>Method:</h3>
+
+<p>POST  </p>
+
+<h3>Required Parameters:</h3>
+
+<p>api_key – Your application specific API Key that can be obtained when you register your app.<br>
+did – Unique device id  </p>
+
+<h3>Optional Parameters:</h3>
+
+<p>rating – Rating given by the user<br>
+description – Description provided by the user<br>
+email – Email provided by the user  </p>
+
+<h3>Sample Curl:</h3>
+
+<div class="highlight"><pre>curl -i -H <span class="s2">"Accept: application/json"</span> -X POST --data <span class="s2">"api_key=&lt;your-api-key&gt;&amp;did=1234&amp;rating=5&amp;description=Great+Design&amp;email=hello@neemware.com"</span> https://api.neemware.com/1/feedbacks  
+</pre></div>
+
+<h3>HTTP Status codes for Positive responses:</h3>
+
+<p>201 Created – If the feedback is created successfully in the server  </p>
+
+<h3>HTTP Status codes for Negative responses:</h3>
+
+<p>400 Bad Request – If required parameter (did) is not passed<br>
+401 Unauthorized – If api_key is not passed or if a wrong api_key is passed  </p>
+
+<h3>Sample iOS Code:</h3>
+
+<p><a href="https://github.com/neemware/neemware-ios-sdk/blob/master/NeemwareSDK/Neemware/Neemware/NWFeedbackSDK/Core/NWConnection.m#L69-L131">NWConnection.m</a></p>
+
+<h2>5. API to record user sessions</h2>
+
+<h3>Overview:</h3>
+
+<p>Use this API to send user length of a user session to the server.  </p>
+
+<h3>Sample Use Case:</h3>
+
+<p>You might have mechanisms in your app to gather time spent by a user in your app. Using this API you can store that session in server.  </p>
+
+<h3>Request:</h3>
+
+<p><a href="https://api.neemware.com/1/feedbacks">https://api.neemware.com/1/feedbacks</a>  </p>
+
+<h3>Method:</h3>
+
+<p>POST  </p>
+
+<h3>Required Parameters:</h3>
+
+<p>api_key – Your application specific API Key that can be obtained when you register your app.<br>
+did – Unique device id<br>
+session_length – In seconds  </p>
+
+<h3>Optional Parameters:</h3>
+
+<p>d_make – Make of the device<br>
+d_model – Model of the device<br>
+d_os – Device OS<br>
+d_osv –  OS Version<br>
+latitude – Latitude<br>
+longitude -  Longitude  </p>
+
+<h3>Sample Curl:</h3>
+
+<div class="highlight"><pre>curl -i -H <span class="s2">"Accept: application/json"</span> -X POST --data <span class="s2">"api_key=&lt;your-api-key&gt;&amp;did=1234&amp;session_length=100"</span> https://api.neemware.com/1/sessions  
+</pre></div>
+
+<h3>HTTP Status codes for Positive responses:</h3>
+
+<p>200 OK  </p>
+
+<h3>HTTP Status codes for Negative responses:</h3>
+
+<p>400 Bad Request – If required parameter (did) is not passed<br>
+401 Unauthorized – If api_key is not passed or if a wrong api_key is passed  </p>
+
+<h3>Sample iOS Code:</h3>
+
+<p><a href="https://github.com/neemware/neemware-ios-sdk/blob/master/NeemwareSDK/Neemware/Neemware/Neemware.m#L285-L312">Neemware.m</a></p>
+
+<h2>6. API to register events</h2>
+
+<h3>Overview:</h3>
+
+<p>Use this API to register specific events based on user actions.  </p>
+
+<h3>Sample Use Case:</h3>
+
+<p>If you have a shopping cart in your app and you would like to track all users who ‘Checkedout’ items through their shopping cart. Then you can easily register that specific event through this API.   </p>
+
+<h3>Request:</h3>
+
+<p><a href="https://api.neemware.com/1/events">https://api.neemware.com/1/events</a>  </p>
+
+<h3>Method:</h3>
+
+<p>POST  </p>
+
+<h3>Required Parameters:</h3>
+
+<p>api_key – Your application specific API Key that can be obtained when you register your app.<br>
+did – Unique device id<br>
+event_name – e.g. “Checkedout”  </p>
+
+<h3>Optional Parameters:</h3>
+
+<p>d_make – Make of the device<br>
+d_model – Model of the device<br>
+d_os – Device OS<br>
+d_osv –  OS Version<br>
+latitude – Latitude<br>
+longitude -  Longitude  </p>
+
+<h3>Sample Curl:</h3>
+
+<div class="highlight"><pre>curl -i -H <span class="s2">"Accept: application/json"</span> -X POST --data <span class="s2">"api_key=&lt;your-api-key&gt;&amp;did=1234&amp;event_name=Checkedout"</span> https://api.neemware.com/1/events  
+</pre></div>
+
+<h3>HTTP Status codes for Positive responses:</h3>
+
+<p>200 OK  </p>
+
+<h3>HTTP Status codes for Negative responses:</h3>
+
+<p>400 Bad Request – If required parameter (did, event_name) is not passed<br>
+401 Unauthorized – If api_key is not passed or if a wrong api_key is passed  </p>
+
+<h3>Sample iOS Code:</h3>
+
+<p><a href="https://github.com/neemware/neemware-ios-sdk/blob/master/NeemwareSDK/Neemware/Neemware/Neemware.m#L405-L435">Neemware.m</a></p>
+
+<h2>7. API to register devices for Push notification</h2>
+
+<h3>Overview:</h3>
+
+<p>Use this API to register specific device for Push notification.  </p>
+
+<h3>Sample Use Case:</h3>
+
+<p>In addition to in-app messaging, you would also like to send Push Notifications to your users. Then you have to make this API call from your app.  </p>
+
+<h3>Request:</h3>
+
+<p><a href="https://api.neemware.com/1/devices/register">https://api.neemware.com/1/devices/register</a>  </p>
+
+<h3>Method:</h3>
+
+<p>POST  </p>
+
+<h3>Required Parameters:</h3>
+
+<p>api_key – Your application specific API Key that can be obtained when you register your app.<br>
+did – Unique device id<br>
+push_token – 64 character Push Token generated inside your app (in a device)  </p>
+
+<h3>Optional Parameters:</h3>
+
+<p>d_make – Make of the device<br>
+d_model – Model of the device<br>
+d_os – Device OS<br>
+d_osv –  OS Version<br>
+latitude – Latitude<br>
+longitude -  Longitude  </p>
+
+<h3>Sample Curl:</h3>
+
+<div class="highlight"><pre>curl -i -H <span class="s2">"Accept: application/json"</span> -X POST --data <span class="s2">"api_key=&lt;your-api-key&gt;&amp;did=1234&amp;push_token=&lt;64-character-token&gt;"</span> https://api.neemware.com/1/devices/register  
+</pre></div>
+
+<h3>HTTP Status codes for Positive responses:</h3>
+
+<p>200 OK  </p>
+
+<h3>HTTP Status codes for Negative responses:</h3>
+
+<p>400 Bad Request – If required parameter (did, push_token) is not passed, or if the length of push token is less than 64 characters .<br>
+401 Unauthorized – If api_key is not passed or if a wrong api_key is passed  </p>
+
+<h3>Sample iOS Code:</h3>
+
+<p><a href="https://github.com/neemware/neemware-ios-sdk/blob/master/NeemwareSDK/Neemware/Neemware/Neemware.m#L437-L470">Neemware.m</a></p>
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+    
+
+  </body>
+</html>
