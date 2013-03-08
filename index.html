@@ -362,65 +362,7 @@ longitude -  Longitude  </p>
 
 <p><a href="https://github.com/neemware/neemware-ios-sdk/blob/master/NeemwareSDK/Neemware/Neemware/Neemware.m#L405-L435">Neemware.m</a></p>
 
-<h2>7. API to register devices for Push notification</h2>
-
-<h3>Overview:</h3>
-
-<p>Use this API to register specific device for Push notification.  </p>
-
-<h3>Sample Use Case:</h3>
-
-<p>In addition to in-app messaging, you would also like to send Push Notifications to your users. Then you have to make this API call from your app.  </p>
-
-<h3>Request:</h3>
-
-<p><a href="https://api.neemware.com/1/devices/register">https://api.neemware.com/1/devices/register</a>  </p>
-
-<h3>Method:</h3>
-
-<p>POST  </p>
-
-<h3>Required Parameters:</h3>
-
-<p>api_key – Your application specific API Key that can be obtained when you register your app.<br>
-did – Unique device id<br>
-push_token – 64 character Push Token generated inside your app (in a device)  </p>
-
-<h3>Optional Parameters:</h3>
-
-<p>d_make – Make of the device<br>
-d_model – Model of the device<br>
-d_os – Device OS<br>
-d_osv –  OS Version<br>
-latitude – Latitude<br>
-longitude -  Longitude  </p>
-
-<h3>Sample Curl:</h3>
-
-<div class="highlight"><pre>curl -i -H <span class="s2">"Accept: application/json"</span> -X POST --data <span class="s2">"api_key=&lt;your-api-key&gt;&amp;did=1234&amp;push_token=&lt;64-character-token&gt;"</span> https://api.neemware.com/1/devices/register  
-</pre></div>
-
-<h3>HTTP Status codes for Positive responses:</h3>
-
-<p>200 OK  </p>
-
-<h3>HTTP Status codes for Negative responses:</h3>
-
-<p>400 Bad Request – If required parameter (did, push_token) is not passed, or if the length of push token is less than 64 characters .<br>
-401 Unauthorized – If api_key is not passed or if a wrong api_key is passed  </p>
-
-<h3>Sample iOS Code:</h3>
-
-<p><a href="https://github.com/neemware/neemware-ios-sdk/blob/master/NeemwareSDK/Neemware/Neemware/Neemware.m#L437-L470">Neemware.m</a></p>
-      </section>
-    </div>
-
-    <!-- FOOTER  -->
-    <div id="footer_wrap" class="outer">
-      <footer class="inner">
-        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
-      </footer>
-    </div>
+</div>
 
     
 
